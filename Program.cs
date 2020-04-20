@@ -22,7 +22,6 @@ namespace Task3
             if (level == "1") {
                 numberOfGuesses = 6;
                 secretNumber = rnd.Next(1, 11);
-                Console.WriteLine(secretNumber);
 
                 while (numberOfGuesses > 0) {
                     numberOfGuesses -= 1;
@@ -54,7 +53,6 @@ namespace Task3
             else if (level == "2") {
                 numberOfGuesses = 4;
                 secretNumber = rnd.Next(1, 21);
-                Console.WriteLine(secretNumber);
                 
                 while (numberOfGuesses > 0) {
                     numberOfGuesses -= 1;
@@ -86,7 +84,6 @@ namespace Task3
             else if (level == "3") {
                 numberOfGuesses = 3;
                 secretNumber = rnd.Next(1, 51);
-                Console.WriteLine(secretNumber);
                 
                 while (numberOfGuesses > 0) {
                     numberOfGuesses -= 1;
