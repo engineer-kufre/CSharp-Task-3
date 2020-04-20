@@ -14,26 +14,38 @@ namespace Task3
             Console.Write("Level: ");
             string level = Console.ReadLine();
             int numberOfGuesses = 0;
+            int secretNumber = 0;
+            int guess = 0;
+            Random rnd = new Random();
 
             // Easy Level
             if (level == "1") {
                 numberOfGuesses = 6;
-                string secretNumber = "7";
+                secretNumber = rnd.Next(1, 11);
+                Console.WriteLine(secretNumber);
 
                 while (numberOfGuesses > 0) {
                     numberOfGuesses -= 1;
-                    Console.Write("Guess a number between 1 and 10: ");
-                    string guess = Console.ReadLine();
-                    if (guess == secretNumber) {
-                        Console.WriteLine("You got it right!");
-                        break;
-                    } else {
-                        Console.WriteLine("That was wrong");
-                        if (numberOfGuesses == 1) {
-                            Console.WriteLine("You have " + numberOfGuesses + " guess left!");
+
+                    try {
+                        Console.Write("Guess a number between 1 and 10: ");
+                        guess = int.Parse(Console.ReadLine());
+                        if (guess == secretNumber) {
+                            Console.WriteLine("You got it right!");
+                            break;
                         } else {
-                            Console.WriteLine("You have " + numberOfGuesses + " guesses left!");
+                            Console.WriteLine("That was wrong");
+                            if (numberOfGuesses == 1) {
+                                Console.WriteLine("You have " + numberOfGuesses + " guess left!");
+                            } else {
+                                Console.WriteLine("You have " + numberOfGuesses + " guesses left!");
+                            }
                         }
+                    }
+
+                    catch (FormatException) {
+                        Console.WriteLine("Please, enter only numbers!");
+                        numberOfGuesses += 1;
                     }
                 }
             }
@@ -41,22 +53,31 @@ namespace Task3
             // Medium Level
             else if (level == "2") {
                 numberOfGuesses = 4;
-                string secretNumber = "17";
+                secretNumber = rnd.Next(1, 21);
+                Console.WriteLine(secretNumber);
                 
                 while (numberOfGuesses > 0) {
                     numberOfGuesses -= 1;
-                    Console.Write("Guess a number between 1 and 20: ");
-                    string guess = Console.ReadLine();
-                    if (guess == secretNumber) {
-                        Console.WriteLine("You got it right!");
-                        break;
-                    } else {
-                        Console.WriteLine("That was wrong");
-                        if (numberOfGuesses == 1) {
-                            Console.WriteLine("You have " + numberOfGuesses + " guess left!");
+
+                    try {
+                        Console.Write("Guess a number between 1 and 20: ");
+                        guess = int.Parse(Console.ReadLine());
+                        if (guess == secretNumber) {
+                            Console.WriteLine("You got it right!");
+                            break;
                         } else {
-                            Console.WriteLine("You have " + numberOfGuesses + " guesses left!");
+                            Console.WriteLine("That was wrong");
+                            if (numberOfGuesses == 1) {
+                                Console.WriteLine("You have " + numberOfGuesses + " guess left!");
+                            } else {
+                                Console.WriteLine("You have " + numberOfGuesses + " guesses left!");
+                            }
                         }
+                    }
+
+                    catch (FormatException) {
+                        Console.WriteLine("Please, enter only numbers!");
+                        numberOfGuesses += 1;
                     }
                 }
             }
@@ -64,28 +85,37 @@ namespace Task3
             // Hard Level
             else if (level == "3") {
                 numberOfGuesses = 3;
-                string secretNumber = "37";
+                secretNumber = rnd.Next(1, 51);
+                Console.WriteLine(secretNumber);
                 
                 while (numberOfGuesses > 0) {
                     numberOfGuesses -= 1;
-                    Console.Write("Guess a number between 1 and 50: ");
-                    string guess = Console.ReadLine();
-                    if (guess == secretNumber) {
-                        Console.WriteLine("You got it right!");
-                        break;
-                    } else {
-                        Console.WriteLine("That was wrong");
-                        if (numberOfGuesses == 1) {
-                            Console.WriteLine("You have " + numberOfGuesses + " guess left!");
+
+                    try {
+                        Console.Write("Guess a number between 1 and 50: ");
+                        guess = int.Parse(Console.ReadLine());
+                        if (guess == secretNumber) {
+                            Console.WriteLine("You got it right!");
+                            break;
                         } else {
-                            Console.WriteLine("You have " + numberOfGuesses + " guesses left!");
+                            Console.WriteLine("That was wrong");
+                            if (numberOfGuesses == 1) {
+                                Console.WriteLine("You have " + numberOfGuesses + " guess left!");
+                            } else {
+                                Console.WriteLine("You have " + numberOfGuesses + " guesses left!");
+                            }
                         }
+                    }
+
+                    catch (FormatException) {
+                        Console.WriteLine("Please, enter only numbers!");
+                        numberOfGuesses += 1;
                     }
                 }
             }
 
             // Game Over
-            if (numberOfGuesses == 0) {
+            if (numberOfGuesses == 0 && guess != secretNumber) {
                 Console.WriteLine("Game Over!");
             }
         }
